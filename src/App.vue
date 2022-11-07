@@ -1,8 +1,22 @@
 <template>
   <app-header></app-header>
-  <router-view></router-view>
+  <app-home></app-home>
   <app-footer></app-footer>
 </template>
+
+<script>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import AppHome from "./pages/AppHome.vue";
+
+export default {
+  components: {
+    AppHeader,
+    AppFooter,
+    AppHome,
+  },
+};
+</script>
 
 <style>
 /* fonts */
@@ -61,15 +75,3 @@
   margin: 0 auto;
 }
 </style>
-
-<script>
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
-
-export default {
-  components: {
-    AppHeader,
-    AppFooter,
-  },
-};
-</script>
