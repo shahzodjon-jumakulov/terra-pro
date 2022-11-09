@@ -7,55 +7,81 @@
   </div>
   <div class="container">
     <div class="features">
-      <div class="item">
-        <img src="../../assets/feature-1.svg" alt="loan" />
-        <p>Покупка товаров в рассрочку</p>
-      </div>
-      <div class="item">
-        <img src="../../assets/feature-2.svg" alt="mail" />
-        <p>Легкий возврат товаров</p>
-      </div>
-      <div class="item">
-        <img src="../../assets/feature-3.svg" alt="delivery" />
-        <p>Бесплатная доставка от 300 000 сум</p>
-      </div>
-      <div class="item">
-        <img src="../../assets/feature-4.svg" alt="delivery" />
-        <p>Доставка по всему Узбекистану</p>
-      </div>
-      <div class="item">
-        <img src="../../assets/feature-5.svg" alt="costs" />
-        <p>Доступные цены</p>
+      <div class="item" v-for="feature in features" :key="feature.key">
+        <img :src="require('../../assets/' + feature.src)" :alt=feature.alt />
+        <p> {{ feature.name }} </p>
       </div>
     </div>
     <div class="sections">
-      <div class="section-item">
-        <img src="../../assets/section-1.png" alt="section" />
-        <p>Чиносы</p>
-      </div>
-      <div class="section-item">
-        <img src="../../assets/section-2.png" alt="section" />
-        <p>Толстовки</p>
-      </div>
-      <div class="section-item">
-        <img src="../../assets/section-3.png" alt="section" />
-        <p>Ветровки</p>
-      </div>
-      <div class="section-item">
-        <img src="../../assets/section-4.png" alt="section" />
-        <p>Кеды</p>
-      </div>
-      <div class="section-item">
-        <img src="../../assets/section-5.png" alt="section" />
-        <p>Джинсы</p>
-      </div>
-      <div class="section-item">
-        <img src="../../assets/section-6.png" alt="section" />
-        <p>Рюкзаки</p>
+      <div class="section-item" v-for="section in sections" :key="section.key">
+        <img :src="require('../../assets/' + section.src)" alt="section" />
+        <p>{{ section.name }}</p>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      features: [
+        {
+          name: "Покупка товаров в рассрочку",
+          src: "feature-1.svg",
+          alt: "loan",
+        },
+        {
+          name: "Легкий возврат товаров",
+          src: "feature-2.svg",
+          alt: "mail",
+        },
+        {
+          name: "Бесплатная доставка от 300 000 сум",
+          src: "feature-3.svg",
+          alt: "delivery",
+        },
+        {
+          name: "Доставка по всему Узбекистану",
+          src: "feature-4.svg",
+          alt: "delivery",
+        },
+        {
+          name: "Доступные цены",
+          src: "feature-5.svg",
+          alt: "costs",
+        },
+      ],
+      sections: [
+        {
+          name: "Чиносы",
+          src: "section-1.png",
+        },
+        {
+          name: "Толстовки",
+          src: "section-2.png",
+        },
+        {
+          name: "Ветровки",
+          src: "section-3.png",
+        },
+        {
+          name: "Кеды",
+          src: "section-4.png",
+        },
+        {
+          name: "Джинсы",
+          src: "section-5.png",
+        },
+        {
+          name: "Рюкзаки",
+          src: "section-6.png",
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <style scoped>
 .banner {
@@ -143,7 +169,6 @@
   color: #242424;
   cursor: pointer;
   transition: 0.5s ease-in-out;
-  
 }
 
 .section-item:hover {

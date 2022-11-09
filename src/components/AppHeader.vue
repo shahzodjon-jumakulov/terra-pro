@@ -30,19 +30,35 @@
             <p>(97) 777-66-99</p>
           </div>
         </div>
-        <div class="header-lang">
+        <div class="header-lang" @click="langIsOpen = !langIsOpen">
           <img src="../assets/header-lang-ru.png" alt="language" class="ru" />
           <p>
             RU
             <img src="../assets/arrow-down.svg" alt="" class="arrow" />
           </p>
+          <div class="lang-menu" v-if="langIsOpen">
+            <div class="lang-ru">Русский</div>
+            <div class="lang-uz">O’zbek</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="header-nav full-width">
       <div class="gender">
-        <button class="gender-item active">Мужчины</button>
-        <button class="gender-item">Женщины</button>
+        <button
+          class="gender-item"
+          @click="gender = 'male'"
+          :class="gender === 'male' ? 'active' : null"
+        >
+          Мужчины
+        </button>
+        <button
+          class="gender-item"
+          @click="gender = 'female'"
+          :class="gender === 'female' ? 'active' : null"
+        >
+          Женщины
+        </button>
       </div>
       <div class="navbar">
         <div class="nav-item">
@@ -56,6 +72,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      gender: "male",
+      langIsOpen: false,
+    };
+  },
+};
+</script>
 
 <style scoped>
 /* top */
@@ -71,7 +98,7 @@
 }
 
 .header-logo p {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .header-logo p {
@@ -126,6 +153,13 @@
 
 .header-icon-item {
   margin: auto 0;
+  cursor: pointer;
+  color: #828282;
+  transition: all .3s ease-in-out;
+}
+
+.header-icon-item:hover {
+  color: #242424;
 }
 
 .header-icon-item img {
@@ -139,7 +173,11 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 14px;
-  color: #828282;
+}
+
+.header-lang {
+  position: relative;
+  cursor: pointer;
 }
 
 .header-lang .ru {
@@ -155,6 +193,25 @@
   line-height: 16px;
   color: #828282;
   position: relative;
+}
+
+.lang-menu {
+  background: rgba(36, 36, 36, 0.95);
+  border-radius: 4px;
+  padding: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  position: absolute;
+  z-index: 3;
+  text-align: center;
+  top: 55px;
+  left: -40px;
+}
+
+.lang-ru {
+  margin-bottom: 24px;
 }
 
 /* navbar */

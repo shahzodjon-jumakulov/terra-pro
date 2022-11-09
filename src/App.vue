@@ -1,22 +1,8 @@
 <template>
   <app-header></app-header>
-  <app-home></app-home>
+  <router-view></router-view>
   <app-footer></app-footer>
 </template>
-
-<script>
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
-import AppHome from "./pages/AppHome.vue";
-
-export default {
-  components: {
-    AppHeader,
-    AppFooter,
-    AppHome,
-  },
-};
-</script>
 
 <style>
 /* fonts */
@@ -60,7 +46,7 @@ export default {
   font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap");
 
 *,
 *::before,
@@ -70,8 +56,24 @@ export default {
   font-family: "TT Hoves";
 }
 
+*::selection {
+  background-color: transparent;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
 }
 </style>
+
+<script>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+
+export default {
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+};
+</script>
